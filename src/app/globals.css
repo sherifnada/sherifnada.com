@@ -6,9 +6,6 @@
   --background-rgb: #EFEAEA;
 }
 
-body {
-  background-color: var(--background-rgb);
-}
 
 @layer utilities {
   .text-balance {
