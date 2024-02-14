@@ -32,11 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={karla.className}>
         <Navbar></Navbar>
         <div className="flex justify-center h-screen">
-          <div className="flex flex-col p-10 min-w-[50%]">
+          <div className="flex flex-col p-10 min-w-[50%] max-w-[55%]">
             {children}  
           </div>
         </div>
