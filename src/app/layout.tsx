@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {karla} from "@/utils/fonts";
 import "./globals.css";
 import Link from "next/link";
+import AutoRefresh from "./AutoRefresh";
 
 export const metadata: Metadata = {
   title: "Sherif Nada"
@@ -32,15 +33,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={karla.className}>
-        <Navbar></Navbar>
-        <div className="flex justify-center h-screen">
-          <div className="flex flex-col p-10 min-w-[50%] max-w-[55%]">
-            {children}  
+    <AutoRefresh>
+      <html lang="en" className="dark">
+        <body className={karla.className}>
+          <Navbar></Navbar>
+          <div className="flex justify-center h-screen">
+            <div className="flex flex-col p-10 min-w-[50%] max-w-[55%]">
+              {children}  
+            </div>
           </div>
-        </div>
-      </body>
-    </html>
+        </body>
+      </html>
+    </AutoRefresh>
+    
   );
 }

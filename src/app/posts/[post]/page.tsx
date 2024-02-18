@@ -12,3 +12,7 @@ export default function Page({params} : {params: {post: string}}) {
         </div>
     );   
 }
+
+export function generateStaticParams(){
+    return Object.keys(POSTS).map(p => {post: p});
+}
