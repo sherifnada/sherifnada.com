@@ -28,7 +28,7 @@ export default function Page({params} : {params: {post: string}}) {
 
     return (
         <Markdown
-            className="markdown"
+            className="markdown prose"
             children={post.content}
             remarkPlugins={[remarkGfm]}
             components={{

@@ -7,6 +7,14 @@ tags:
     - ETL 
 ---
 
+```java
+class A {
+    public static void main(String[] args){
+        
+    }
+}
+```
+
 Over the last year, our team has interviewed more than 200 companies about their data integration use cases. What we discovered is that data integration in 2021 is still a mess.  
 
 ## The Unscalable Current Situation
