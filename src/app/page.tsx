@@ -34,7 +34,6 @@ function formatDate(date: Date) {
 
 
 function Blog({posts}: {posts: {[key: string]: Post}}){
-  console.log(POSTS);
   return (
     <>
       {
