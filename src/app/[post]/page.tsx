@@ -11,10 +11,11 @@ const CodeBlock = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLEleme
         return (<div>
             <SyntaxHighlighter
                 {...rest}
-                children={String(children).replace(/\n$/, '')}
                 language={match[1]}
                 style={vs}
-            />
+            > 
+                {String(children).replace(/\n$/, '')}
+            </SyntaxHighlighter>
         </div>)
     } else  {
         return <code {...rest}>
@@ -25,18 +26,29 @@ const CodeBlock = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLEleme
 
 export default function Page({params} : {params: {post: string}}) {
     const post = POSTS[params.post];
-
     return (
         <Markdown
             className="markdown prose"
-            children={post.content}
             remarkPlugins={[remarkGfm]}
             components={{
                 code(props){
                     return CodeBlock(props);
                 }
             }}
+            urlTransform={url => {
+                if (url.startsWith("http")){
+                    return url;
+                } else {
+                    return `/${params.post}/${url}`;
+                }
+            }}
         >
+            {post.content}
         </Markdown>
     )
 }
+
+export function generateStaticParams(){
+    return Object.keys(POSTS).map(p => {return {post: p}});
+}
+export const dynamicParams = false

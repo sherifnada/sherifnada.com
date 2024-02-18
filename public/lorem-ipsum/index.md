@@ -7,7 +7,9 @@ tags:
     - ETL 
 ---
 
-# Lorem Ipsum: Markdown Guide bro
+# Lorem Ipsum: Markdown Guide hahadd
+
+![](pic.jpg)
 
 ## Overview
 

@@ -41,9 +41,9 @@ function Blog({posts}: {posts: {[key: string]: Post}}){
       .sort((a, b) => a.metadata.createdDate > b.metadata.createdDate ? -1 : 1)
       .map((post) => {
         return (
-          <div className="flex flex-row mb-10">
+          <div className="flex flex-row mb-10" key={post.metadata.key}>
             <div className="pr-10">{formatDate(post.metadata.createdDate)}</div>
-            <Link href={`/posts/${post.metadata.key}`} key={post.metadata.title}>
+            <Link href={`/${post.metadata.key}`} key={post.metadata.title}>
               <div className="flex flex-col">
                 <div className="text-2xl font-semibold">{post.metadata.title}</div>
                 <div className="my-3">{post.metadata.description}</div>

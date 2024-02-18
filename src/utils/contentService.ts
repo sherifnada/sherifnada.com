@@ -13,12 +13,14 @@ interface Post {
 }
 
 
-const listAllMarkdownFiles = () => {
-    // todo figure out how we're going to handle images
-    return readdirSync('./content').filter(file => file.endsWith('.md'));
+const listAllDirectories = () => {
+    const items = readdirSync("./public", { withFileTypes: true });
+    // Filter out and return only directories
+    return items.filter(item => item.isDirectory()).map(dir => dir.name);
 }
+
 // TODO validate that the schema of data is the same as the post type
-const parseMarkdown = (fileName:string, markdown: string): Post => {
+const parseMarkdown = (fileName: string, markdown: string): Post => {
     const { data, content } = matter(markdown);
     data.createdDate = new Date(data.createdDate);
     data.key = fileName.replace('.md', '');
@@ -27,9 +29,9 @@ const parseMarkdown = (fileName:string, markdown: string): Post => {
 
 const getAllPosts = () => {
     const keyToPost: {[key: string]: Post} = {};
-    for (let fileName of listAllMarkdownFiles()){
-        const markdown = readFileSync('./content/' + fileName, 'utf-8');
-        const post = parseMarkdown(fileName, markdown);
+    for (let dirName of listAllDirectories()){
+        const markdown = readFileSync(`./public/${dirName}/index.md`, 'utf-8');
+        const post = parseMarkdown(dirName, markdown);
         keyToPost[post.metadata.key] = post;
     }
     return keyToPost
@@ -38,5 +40,5 @@ const getAllPosts = () => {
 const POSTS = getAllPosts();
 
 export type {Post};
-export {POSTS};
+export {POSTS, getAllPosts};
 
