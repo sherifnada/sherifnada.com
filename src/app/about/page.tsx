@@ -5,7 +5,7 @@ export default function Page(){
     return (
         <div className={`[&>p]:text-xl [&>p]:pb-6 ${crimsonText.className}`}>
             <p className="text-xl">
-                Hi folks! In case the massive page header didn't give it away, I'm Sherif Nada. 
+                Hi folks! In case the massive page header didn&apos;t give it away, I&apos;m Sherif Nada. 
             </p>
             <p>
                 I write about engineering management, startups, software engineering, and anything else between those that I find interesting. 
@@ -19,7 +19,7 @@ export default function Page(){
                 data platforms and pipelines. 
             </p>
             <p>
-                I went to school at Middlebury College where I studied Mathematics and Computer Science and founded Photon, the world's simplest photo printing service. 
+                I went to school at Middlebury College where I studied Mathematics and Computer Science and founded Photon, the world&apos;s simplest photo printing service. 
             </p>
         </div>
     )
