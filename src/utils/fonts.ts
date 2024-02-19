@@ -1,4 +1,4 @@
-import { Karla, Rajdhani } from "next/font/google";
+import { Crimson_Text, Karla, Rajdhani, Lora } from "next/font/google";
 
 
 const rajdhani = Rajdhani({
@@ -10,4 +10,14 @@ const karla = Karla({
   subsets: ["latin"]
 });
 
-export {rajdhani, karla};
+const lora = Lora({
+  weight: ["400", "500", '600', "700"],
+  subsets: ["latin"]
+});
+
+const crimsonText = Crimson_Text({
+  weight: ["400", '600', '700'],
+  subsets: ["latin"]
+});
+
+export {crimsonText, rajdhani, karla, lora};

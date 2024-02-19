@@ -35,14 +35,14 @@ function formatDate(date: Date) {
 
 function Blog({posts}: {posts: {[key: string]: Post}}){
   return (
-    <>
+    <div className="no-style-links">
       {
       Object.values(POSTS)
       .sort((a, b) => a.metadata.createdDate > b.metadata.createdDate ? -1 : 1)
       .map((post) => {
         return (
           <div className="flex flex-row mb-10" key={post.metadata.key}>
-            <div className="pr-10">{formatDate(post.metadata.createdDate)}</div>
+            <div className="flex flex-col w-40 flex-shrink-0 flex-grow-0 overflow-hidden pr-10">{formatDate(post.metadata.createdDate)}</div>
             <Link href={`/${post.metadata.key}`} key={post.metadata.title}>
               <div className="flex flex-col">
                 <div className="text-2xl font-semibold">{post.metadata.title}</div>
@@ -52,7 +52,7 @@ function Blog({posts}: {posts: {[key: string]: Post}}){
           </div>
         )
       })}
-    </>
+    </div>
   )
 
 }
