@@ -1,24 +1,28 @@
 import { POSTS } from "@/utils/contentService";
 import Markdown from "react-markdown";
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
-import {vs} from "react-syntax-highlighter/dist/esm/styles/hljs";
+import {vscDarkPlus} from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
+import './markdown.css'
 
 const CodeBlock = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>) => {
     const {className, children, ref, ...rest} = props;
     const match = /language-(\w+)/.exec(className || '')
+    console.log('language');
+    console.log(match);
     if (match){
         return (<div>
             <SyntaxHighlighter
                 {...rest}
                 language={match[1]}
-                style={vs}
+                style={vscDarkPlus}
+                className="not-prose rounded-lg"
             > 
                 {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>
         </div>)
     } else  {
-        return <code {...rest}>
+        return <code className="not-prose" {...rest}>
             {children}
         </code>
     }
@@ -28,9 +32,12 @@ export default function Page({params} : {params: {post: string}}) {
     const post = POSTS[params.post];
     return (
         <Markdown
-            className={`prose max-w-none w-full `}
+            className={`prose markdown max-w-none w-full`}
             remarkPlugins={[remarkGfm]}
             components={{
+                pre(props){
+                    return (<div>{props.children}</div>)
+                },
                 code(props){
                     return CodeBlock(props);
                 }
