@@ -6,8 +6,29 @@
   --background-rgb: #EFEAEA;
 }
 
-body {
-  background-color: var(--background-rgb);
+
+@layer base{
+
+  .no-style-links a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+
+  .no-style-links a:hover {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  a {
+    color: blue;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
 }
 
 @layer utilities {
