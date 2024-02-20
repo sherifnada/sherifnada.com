@@ -7,13 +7,20 @@
 }
 
 
-@layer base{
+body {
+  background-color: var(--background-rgb);
+}
 
+@layer base {
+  .markdown > * {
+    all: revert;
+  }
+
+  /* Style links except when we don't want to in places like navbar etc */
   .no-style-links a {
     color: inherit;
     text-decoration: inherit;
   }
-
 
   .no-style-links a:hover {
     color: inherit;
@@ -28,7 +35,6 @@
   a:hover {
     text-decoration: underline;
   }
-
 }
 
 @layer utilities {

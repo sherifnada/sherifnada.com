@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 function Navbar(){
   return (
-    <div className="no-style-links flex flex-row  inset-x-0 top-0 p-10">
+    <div className="no-style-links flex flex-column lg:flex-row  inset-x-0 top-0 p-10">
       <div className="w-10 absolute justify-center">
         <Link href="/">
           <Image src="/me.png" alt="Sherif Nada" width={100} height={100} className="rounded-full"/>
@@ -24,7 +24,7 @@ function Navbar(){
       <div className="text-5xl w-full text-center">
         <Link href="/">Sherif Nada</Link>
       </div>
-      <div className="absolute top-0 right-0 flex flex-row [&>div]:text-xl [&>div]:py-12 [&>div]:px-5 pr-10">
+      <div className="lg:absolute lg:top-0 lg:right-0 flex flex-row [&>div]:text-xl [&>div]:py-12 [&>div]:px-5 pr-10">
         <div className="">
           <Link href="/about">About</Link> 
         </div>
