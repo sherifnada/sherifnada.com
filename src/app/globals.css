@@ -3,17 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --background-rgb: #EFEAEA;
+  --theme-background-rgb: #EFEAEA;
+  --theme-text-color: #111827;
 }
 
 
-@layer base{
+body {
+  background-color: var(--background-rgb);
+}
 
+@layer base {
+  
+  /* Style links except when we don't want to in places like navbar etc */
   .no-style-links a {
     color: inherit;
     text-decoration: inherit;
   }
-
 
   .no-style-links a:hover {
     color: inherit;
@@ -28,7 +33,6 @@
   a:hover {
     text-decoration: underline;
   }
-
 }
 
 @layer utilities {

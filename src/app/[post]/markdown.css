@@ -1,0 +1,59 @@
+.markdown *:not(pre) {
+    @apply text-xl;
+    font-weight: inherit;
+    color: var(--theme-text-color);
+}
+
+.prose :where(ul > li)::marker {
+    color: var(--theme-text-color);
+}
+
+.prose :where(ol > li)::marker {
+    color: var(--theme-text-color);
+}
+
+.markdown a {
+    all: revert;
+    text-decoration: none;
+}
+
+.markdown a:hover {
+    text-decoration: underline;
+}
+
+.markdown h1 {
+    @apply text-5xl mb-5
+}
+
+.markdown h2 {
+    @apply text-4xl mb-5
+}
+
+.markdown h3 {
+    @apply text-3xl mb-5
+}
+
+.markdown h4 {
+    @apply text-2xl mb-5
+}
+
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+    @apply my-5;
+}
+
+.markdown ul.contains-task-list {
+    @extend .not-prose;
+    list-style-position: outside;
+    list-style-image: none;
+    list-style: none;
+    padding-left: 0;
+}
+
+.markdown ul.contains-task-list li {
+    line-height: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
