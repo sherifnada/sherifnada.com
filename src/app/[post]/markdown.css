@@ -17,6 +17,10 @@
     text-decoration: none;
 }
 
+.markdown strong {
+    @apply font-semibold;
+}
+
 .markdown a:hover {
     text-decoration: underline;
 }
