@@ -15,16 +15,16 @@ export const metadata: Metadata = {
 
 function Navbar(){
   return (
-    <div className="no-style-links flex flex-column lg:flex-row  inset-x-0 top-0 p-10">
-      <div className="w-10 absolute justify-center">
-        <Link href="/">
-          <Image src="/me.png" alt="Sherif Nada" width={100} height={100} className="rounded-full"/>
+    <div className="justify-center lg:justify-normal no-style-links flex flex-col lg:flex-row  inset-x-0 top-0 p-10">
+      <div className="flex justify-center lg:justify-normal lg:absolute mb-5 ">
+        <Link className="w-12" href="/">
+          <Image src="/me.png" alt="Sherif Nada" width="100" height="100" className="rounded-full"/>
         </Link>
       </div>
       <div className="text-5xl w-full text-center">
         <Link href="/">Sherif Nada</Link>
       </div>
-      <div className="lg:absolute lg:top-0 lg:right-0 flex flex-row [&>div]:text-xl [&>div]:py-12 [&>div]:px-5 pr-10">
+      <div className="text-center justify-center lg:absolute lg:top-0 lg:right-0 flex flex-row [&>div]:text-xl [&>div]:py-3 lg:[&>div]:py-12 [&>div]:px-5 lg:pr-10">
         <div className="">
           <Link href="/about">About</Link> 
         </div>
@@ -61,10 +61,10 @@ export default function RootLayout({
   return (
     <AutoRefresh>
       <html lang="en" className="dark">
-        <body className={crimsonText.className}>
+        <body className={`${crimsonText.className}`}>
           <Navbar></Navbar>
           <div className="flex justify-center h-screen">
-            <div className="flex flex-col p-10 min-w-[50%] max-w-[55%]">
+            <div className="flex flex-col p-10 max-w-3xl">
               {children}  
             </div>
           </div>

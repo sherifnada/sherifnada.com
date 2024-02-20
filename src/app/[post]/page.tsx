@@ -28,7 +28,7 @@ export default function Page({params} : {params: {post: string}}) {
     const post = POSTS[params.post];
     return (
         <Markdown
-            className={`prose max-w-none w-full`}
+            className={`prose max-w-none w-full `}
             remarkPlugins={[remarkGfm]}
             components={{
                 code(props){
