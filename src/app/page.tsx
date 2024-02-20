@@ -39,6 +39,7 @@ function Blog({posts}: {posts: {[key: string]: Post}}){
       {
       Object.values(POSTS)
       .sort((a, b) => a.metadata.createdDate > b.metadata.createdDate ? -1 : 1)
+      .filter(post => !post.metadata.draft)
       .map((post) => {
         return (
           <div className="flex flex-row mb-10" key={post.metadata.key}>

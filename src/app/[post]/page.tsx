@@ -8,8 +8,6 @@ import './markdown.css'
 const CodeBlock = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>) => {
     const {className, children, ref, ...rest} = props;
     const match = /language-(\w+)/.exec(className || '')
-    console.log('language');
-    console.log(match);
     if (match){
         return (<div>
             <SyntaxHighlighter
@@ -32,7 +30,7 @@ export default function Page({params} : {params: {post: string}}) {
     const post = POSTS[params.post];
     return (
         <Markdown
-            className={`prose markdown max-w-none w-full`}
+            className={`prose markdown max-w-none w-full pb-40`}
             remarkPlugins={[remarkGfm]}
             components={{
                 pre(props){
