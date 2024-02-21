@@ -4,8 +4,6 @@ description:
 createdDate: 02/17/2024
 ---
 
-# Hello world
-
 Hi folks! Thanks for visiting my blog. In case the massive page header didn't give it away, I'm Sherif Nada. 
 
 In this blog, I'll write about engineering management, startups, software engineering, and anything else in between. 

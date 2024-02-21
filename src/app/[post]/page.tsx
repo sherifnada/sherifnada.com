@@ -1,4 +1,5 @@
 import { POSTS } from "@/utils/contentService";
+import { formatDate } from "@/utils/dates";
 import Markdown from "react-markdown";
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
 import {vscDarkPlus} from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -29,27 +30,32 @@ const CodeBlock = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLEleme
 export default function Page({params} : {params: {post: string}}) {
     const post = POSTS[params.post];
     return (
-        <Markdown
-            className={`prose markdown max-w-none w-full pb-40`}
-            remarkPlugins={[remarkGfm]}
-            components={{
-                pre(props){
-                    return (<div>{props.children}</div>)
-                },
-                code(props){
-                    return CodeBlock(props);
-                }
-            }}
-            urlTransform={url => {
-                if (url.startsWith("http")){
-                    return url;
-                } else {
-                    return `/${params.post}/${url}`;
-                }
-            }}
-        >
-            {post.content}
-        </Markdown>
+        <>
+            <h1 className="text-5xl">{post.metadata.title}</h1>
+            <em className="mt-2 mb-10">{formatDate(post.metadata.createdDate)}</em>
+            <Markdown
+                className={`prose markdown max-w-none w-full pb-40`}
+                remarkPlugins={[remarkGfm]}
+                components={{
+                    pre(props){
+                        return (<div>{props.children}</div>)
+                    },
+                    code(props){
+                        return CodeBlock(props);
+                    }
+                }}
+                urlTransform={url => {
+                    if (url.startsWith("http")){
+                        return url;
+                    } else {
+                        return `/${params.post}/${url}`;
+                    }
+                }}
+            >
+                
+                {post.content}
+            </Markdown>
+        </>
     )
 }
 

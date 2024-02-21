@@ -9,8 +9,6 @@ tags:
     - values
 ---
 
-# Your company shouldn't be for everyone
-
 Building a company is an exercise in empirically testing your belief systems. Everything your company does is essentially testing a hypothesis. Your successful product was once a hypothesis that was proven correct. Your failed pivots were hypotheses that were proven wrong. This is how the game works. If you're right, you win. If you're wrong, you lose. It's that simple. And the more right you are about the "important" things, the bigger the upside.
 
 Take a contentious example: working "hardcore" hours. If you genuinely believe that working 14 hour days and weekends and frequently sleeping in the office is the optimal way to build your business, then run your company that way, demand it from your employees and vendors, and let the free market decide. 
