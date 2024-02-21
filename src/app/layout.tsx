@@ -17,7 +17,7 @@ function Navbar(){
   return (
     <div className="justify-center lg:justify-normal no-style-links flex flex-col lg:flex-row  inset-x-0 top-0 p-10">
       <div className="flex justify-center lg:justify-normal lg:absolute mb-5 ">
-        <Link className="w-20 lg:w-16" href="/">
+        <Link className="w-20 lg:w-12" href="/">
           <Image src="/me.png" alt="Sherif Nada" width="100" height="100" className="rounded-full"/>
         </Link>
       </div>
