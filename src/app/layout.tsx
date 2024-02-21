@@ -9,7 +9,7 @@ import { MdEmail } from "react-icons/md";
 
 
 export const metadata: Metadata = {
-  title: "Sherif Nada"
+  title: "Sherif's blog"
 };
 
 

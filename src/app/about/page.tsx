@@ -1,6 +1,10 @@
 import Link from "next/link";
 import {lora, karla, rajdhani, crimsonText} from "@/utils/fonts";
 
+export const metadata = {
+    description: "I'm Sherif, an engineering leader afflicted with the startup bug.",
+}
+
 export default function Page(){
     return (
         <div className={`[&>p]:text-xl [&>p]:pb-6 ${crimsonText.className}`}>
