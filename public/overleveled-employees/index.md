@@ -6,6 +6,7 @@ tags:
     - performance_management
     - culture
     - values
+draft: true
 ---
 At some point in your managerial life, you may find yourself in a situation where someone on your team is over-leveled. Their compensation or title is meaningfully higher than what their impact merits. Maybe you overestimated their seniority when hiring them. Maybe you inherited a team where a previous manager gave them a promotion or a raise they weren’t ready for. Or maybe your company rewrote your previous career ladder and had to re-rank everyone on the new ladder and it turned out that some people’s salaries or titles were previously inflated. Point is: someone’s title or compensation is seriously higher than what their impact justifies. What do you do?
 
