@@ -38,8 +38,12 @@ const getAllPosts = () => {
     return keyToPost
 };
 
+function sortPostsDesc(posts: {[key: string]: Post}){
+    return Object.values(posts).sort((a, b) => a.metadata.createdDate > b.metadata.createdDate ? -1 : 1);
+}
+
 const POSTS = getAllPosts();
 
 export type {Post};
-export {POSTS, getAllPosts};
+export {POSTS, getAllPosts, sortPostsDesc};
 
