@@ -17,7 +17,7 @@ interface Post {
 const listAllDirectories = () => {
     const items = readdirSync("./public", { withFileTypes: true });
     // Filter out and return only directories
-    return items.filter(item => item.isDirectory()).map(dir => dir.name);
+    return items.filter(item => item.isDirectory()).map(dir => dir.name).filter(dirName => !dirName.startsWith("."));
 }
 
 // TODO validate that the schema of data is the same as the post type

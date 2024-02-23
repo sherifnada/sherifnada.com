@@ -7,12 +7,11 @@ import Image from "next/image";
 import { FaXTwitter, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { Analytics } from "@vercel/analytics/react"
-
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Sherif's blog"
 };
-
 
 function Navbar(){
   return (
@@ -62,12 +61,21 @@ export default function RootLayout({
   return (
     <AutoRefresh>
       <html lang="en" className="dark">
+        <head>
+          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-CCESVCHGX6"></Script>
+          {/* This is silly but nextjs is even sillier when you use <script> tags */}
+          <Script id='gtag-init'>{
+              `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-CCESVCHGX6');`
+            }
+          </Script>
+        </head>
         <body className={`${crimsonText.className}`}>
           <Navbar></Navbar>
           <div className="flex justify-center h-screen">
             <div className="flex flex-col p-10 max-w-3xl">
               {children}  
               <Analytics />
+
             </div>
           </div>
         </body>
