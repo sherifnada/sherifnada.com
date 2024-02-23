@@ -1,4 +1,4 @@
-import { POSTS, Post } from "@/utils/contentService";
+import { POSTS, Post, sortPostsDesc } from "@/utils/contentService";
 import { formatDate } from "@/utils/dates";
 import Link from "next/link";
 
@@ -6,8 +6,7 @@ function Blog({posts}: {posts: {[key: string]: Post}}){
   return (
     <div className="no-style-links">
       {
-      Object.values(POSTS)
-      .sort((a, b) => a.metadata.createdDate > b.metadata.createdDate ? -1 : 1)
+      sortPostsDesc(posts)
       .filter(post => !post.metadata.draft)
       .map((post) => {
         return (
