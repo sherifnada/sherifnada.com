@@ -6,6 +6,7 @@ import AutoRefresh from "./AutoRefresh";
 import Image from "next/image";
 import { FaXTwitter, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import { Analytics } from "@vercel/analytics/react"
 
 
 export const metadata: Metadata = {
@@ -66,6 +67,7 @@ export default function RootLayout({
           <div className="flex justify-center h-screen">
             <div className="flex flex-col p-10 max-w-3xl">
               {children}  
+              <Analytics />
             </div>
           </div>
         </body>
