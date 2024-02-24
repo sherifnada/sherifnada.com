@@ -1,4 +1,5 @@
 import {crimsonText} from '@/utils/fonts';
+import Script from 'next/script';
 
 export default function Page(){
     return (
@@ -26,7 +27,7 @@ export default function Page(){
                             <div className="response" id="mce-success-response" style={{display: 'none'}}></div>
                         </div>
                     <div className='hidden' style={{position: 'absolute', left: '-5000px'}}>
-                        /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
+                        {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
                         <input type="text" name="b_81970368da0e2130fb003359e_a9cfdaf9f5" tabIndex={-1}/>
                     </div>
                         <div className="optionalParent">
@@ -36,8 +37,8 @@ export default function Page(){
                         </div>
                     </form>
                 </div>
-                <script type="text/javascript" src="https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-                <script type="text/javascript" src="/mailchimp-ftypes.js"></script>
+                <Script type="text/javascript" src="https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></Script>
+                <Script type="text/javascript" src="/mailchimp-ftypes.js"></Script>
             </div>
         </>
     )    
