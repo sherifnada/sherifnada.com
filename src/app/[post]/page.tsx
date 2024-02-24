@@ -4,9 +4,10 @@ import Markdown from "react-markdown";
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
 import {vscDarkPlus} from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
+import { createPageMetadata } from "@/utils/metadataHelper";
 import './markdown.css'
 
-import { Metadata, ResolvingMetadata } from "next/types";
+import { Metadata} from "next/types";
 
 type Props = {
     params: { post: string }
@@ -18,7 +19,6 @@ function getFirstParagraph(markdown: string): string {
     return paragraphs.length > 0 ? paragraphs[0] : markdown;
 }
 
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // read route params
     const post = POSTS[params.post];
@@ -27,27 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const postDescription = getFirstParagraph(post.content);
     const postUrl = `https://sherifnada.com/${postMetadata.key}`;
     const postImage = ['https://www.sherifnada.com/me.png'];
-    return {
-      title: postTitle,
-      description: postDescription,
-      robots: {
-        index: true,
-        follow: true
-      },
-      openGraph: {
-        title: postTitle,
-        description: postDescription, 
-        type: "article", 
-        url: postUrl, 
-        images: postImage,
-      },
-      twitter: {
-        card: "summary",
-        title: postTitle,
-        description: postDescription,
-        images: postImage,
-      }
-    }
+    return createPageMetadata(postTitle, postDescription, postUrl, postImage);
   }
 
 const CodeBlock = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>) => {

@@ -8,11 +8,14 @@ import { FaXTwitter, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { Analytics } from "@vercel/analytics/react"
 import Script from "next/script";
+import { createPageMetadata } from "@/utils/metadataHelper";
 
-export const metadata: Metadata = {
-  title: "Sherif's blog",
-  description: "A blog about startups, management, and engineering."
-};
+export const metadata: Metadata = createPageMetadata(
+  "Sherif's blog", 
+  "A blog about startups, management, and engineering.", 
+  "https://sherifnada.com", 
+  ["https://www.sherifnada.com/me.png"]
+);
 
 function Navbar(){
   return (
