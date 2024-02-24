@@ -21,7 +21,7 @@ To be clear, I'm not suggesting that you implement controversial policies for th
 
 That's the beauty of this mental model: the only thing that matters about your hypotheses (aka how your company works) is whether they're right or wrong, _not_ their overall popularity.
 
-Put differently: it doesn't matter how many people disagree with you or criticize your company for demanding 14 hour days or 4 hour weeks from your employees. What matters is you're right about that being a good way to run _your_ business. If you have the right customers and employees, then who cares others think? If it works for you, it works for you. So don't seek consensus about how your company should run from people not on the critical path of its success (i.e anyone who isn't a customer, partner, employee, or shareholder). As long as you can get the needed critical mass of people who want to work at your company and enough customers to use your product, your company will succeed, because your hypothesis was correct. 
+Put differently: it doesn't matter how many people disagree with you or criticize your company for demanding 14 hour days or 4 hour weeks from your employees. What matters is whether you're right about that being a good way to run _your_ business. If you have the right customers and employees, then who cares others think? If it works for you, it works for you. So don't seek consensus about how your company should run from people not on the critical path of its success (i.e anyone who isn't a customer, partner, employee, or shareholder). As long as you can get the needed critical mass of people who want to work at your company and enough customers to use your product, your company will succeed, because your hypothesis was correct. 
 
 ![](./graph1.png)
 
