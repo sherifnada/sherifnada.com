@@ -26,8 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const postTitle = postMetadata.title;
     const postDescription = getFirstParagraph(post.content);
     const postUrl = `https://sherifnada.com/${postMetadata.key}`;
-    const postImage = ['https://www.sherifnada.com/me.png'];
-    return createPageMetadata(postTitle, postDescription, postUrl, postImage);
+    return createPageMetadata(postTitle, postDescription, postUrl);
   }
 
 const CodeBlock = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>) => {

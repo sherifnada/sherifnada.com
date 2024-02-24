@@ -14,7 +14,6 @@ export const metadata: Metadata = createPageMetadata(
   "Sherif's blog", 
   "A blog about startups, management, and engineering.", 
   "https://sherifnada.com", 
-  ["https://www.sherifnada.com/me.png"]
 );
 
 function Navbar(){

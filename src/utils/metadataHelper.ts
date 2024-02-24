@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
-function createPageMetadata(title: string, description: string, url: string, image: string[]): Metadata{
+function createPageMetadata(title: string, description: string, url: string): Metadata{
+    const image = ['https://www.sherifnada.com/me.png'];
     return {
         title: title,
         description: description,
