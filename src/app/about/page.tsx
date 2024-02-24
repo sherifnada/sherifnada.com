@@ -2,6 +2,7 @@ import Link from "next/link";
 import {lora, karla, rajdhani, crimsonText} from "@/utils/fonts";
 
 export const metadata = {
+    title: "About - Sherif's blog",
     description: "I'm Sherif, an engineering leader afflicted with the startup bug.",
 }
 

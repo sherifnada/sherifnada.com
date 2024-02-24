@@ -6,6 +6,50 @@ import {vscDarkPlus} from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 import './markdown.css'
 
+import { Metadata, ResolvingMetadata } from "next/types";
+
+type Props = {
+    params: { post: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
+
+function getFirstParagraph(markdown: string): string {
+    const paragraphs = markdown.split(/\n\n/);
+    return paragraphs.length > 0 ? paragraphs[0] : markdown;
+}
+
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    // read route params
+    const post = POSTS[params.post];
+    const postMetadata = post.metadata;
+    const postTitle = postMetadata.title;
+    const postDescription = getFirstParagraph(post.content);
+    const postUrl = `https://sherifnada.com/${postMetadata.key}`;
+    const postImage = ['https://www.sherifnada.com/me.png'];
+    return {
+      title: postTitle,
+      description: postDescription,
+      robots: {
+        index: true,
+        follow: true
+      },
+      openGraph: {
+        title: postTitle,
+        description: postDescription, 
+        type: "article", 
+        url: postUrl, 
+        images: postImage,
+      },
+      twitter: {
+        card: "summary",
+        title: postTitle,
+        description: postDescription,
+        images: postImage,
+      }
+    }
+  }
+
 const CodeBlock = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>) => {
     const {className, children, ref, ...rest} = props;
     const match = /language-(\w+)/.exec(className || '')
