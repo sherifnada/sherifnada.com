@@ -1,5 +1,5 @@
 ---
-title: Your company shouldn't be for everyone
+title: Your company doesn't have to be for everyone
 description: And that's a good thing
 createdDate: 02/19/2024
 tags: 
@@ -9,7 +9,7 @@ tags:
     - values
 ---
 
-Building a company is an exercise in empirically testing your beliefs. Everything your company does is essentially testing a hypothesis. Your successful product was once a hypothesis that was proven correct. Your failed pivots were hypotheses that were proven wrong. This is how the game works: when you're right, you win. When you're wrong, you lose. It's that simple.
+Building a company is an exercise in empirically testing your beliefs. Everything your company does is essentially testing a hypothesis. Your successful product was once a hypothesis that was proven correct. Your failed pivots were hypotheses that were proven wrong. This is how the game works: when you're right, you win. When you're wrong, you lose.
 
 Take a contentious example: working "hardcore" hours. If you genuinely believe that working 14 hour days and weekends and sleeping in the office is the optimal way to build your business, then run your company that way, demand it from your employees and vendors, and let the free market decide. 
 
