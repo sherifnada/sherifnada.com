@@ -53,4 +53,4 @@ Unfortunately, I believe it’s harder to hit this kind of improvement goal than
 
 If you do your best to uphold a high standard of meritocracy in your company, you should ideally never find yourself in this position. Promotions should have a high bar. Your leveling in the hiring process should also be risk averse, only hiring people at a given level if you’re pretty sure they have what it takes. 
 
-Of course, no company is perfect and you may very well find yourself having to resolve this. If you do find yourself in this situation, it's important to remember that this is basically no different than a standard underperformance situation. It’s never fun to deal with, but it’s critical that you do to maintaining meritocracy as an invariant of your culture. 
+Of course, no company is perfect and you may very well find yourself having to resolve this. If you do find yourself in this situation, it's important to remember that this is basically no different than a standard underperformance situation. It’s never fun to deal with, but it’s critical that you do in order to maintain meritocracy as an invariant of your culture. 
