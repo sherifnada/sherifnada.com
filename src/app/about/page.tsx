@@ -1,9 +1,12 @@
 import Link from "next/link";
 import {lora, karla, rajdhani, crimsonText} from "@/utils/fonts";
+import { createPageMetadata } from "@/utils/metadataHelper";
 
-export const metadata = {
-    description: "I'm Sherif, an engineering leader afflicted with the startup bug.",
-}
+export const metadata = createPageMetadata(
+    "About - Sherif's blog",
+    "A blog about startups, management, and engineering.",
+    "https://sherifnada.com/about",
+);
 
 export default function Page(){
     return (

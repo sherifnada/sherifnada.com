@@ -4,7 +4,30 @@ import Markdown from "react-markdown";
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
 import {vscDarkPlus} from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
+import { createPageMetadata } from "@/utils/metadataHelper";
 import './markdown.css'
+
+import { Metadata} from "next/types";
+
+type Props = {
+    params: { post: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
+
+function getFirstParagraph(markdown: string): string {
+    const paragraphs = markdown.split(/\n\n/);
+    return paragraphs.length > 0 ? paragraphs[0] : markdown;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    // read route params
+    const post = POSTS[params.post];
+    const postMetadata = post.metadata;
+    const postTitle = postMetadata.title;
+    const postDescription = getFirstParagraph(post.content);
+    const postUrl = `https://sherifnada.com/${postMetadata.key}`;
+    return createPageMetadata(postTitle, postDescription, postUrl);
+  }
 
 const CodeBlock = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>) => {
     const {className, children, ref, ...rest} = props;
