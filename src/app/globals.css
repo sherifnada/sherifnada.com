@@ -3,13 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --theme-background-rgb: #EFEAEA;
+  --theme-background: #EFEAEA;
   --theme-text-color: #111827;
-}
-
-
-body {
-  background-color: var(--background-rgb);
 }
 
 @layer base {
