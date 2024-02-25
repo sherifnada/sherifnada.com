@@ -29,8 +29,14 @@ export default function Page(){
                 I went to school at Middlebury College where I studied Mathematics and Computer Science and founded Photon, the world&apos;s simplest photo printing service. 
             </p>
             <p>
-                The easiest way to get in touch with me is through <Link href="https://twitter.com/sheriffnothing">Twitter</Link> or email.
+                The easiest way to get in touch with me is through <Link href="https://twitter.com/sheriffnothing">Twitter</Link>, but here are other ways to get in touch:
             </p>
+            <ul className="text-xl">
+                <li><Link href="mailto:snadalive@gmail.com">Email</Link></li>
+                <li><Link href="https://linkedin.com/in/shrif">Linkedin</Link></li>
+                <li><Link target="_blank" href="https://github.com/sherifnada">Github</Link></li>
+            </ul>
         </div>
     )
 }
+

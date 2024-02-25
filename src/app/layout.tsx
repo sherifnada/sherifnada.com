@@ -4,7 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import AutoRefresh from "./AutoRefresh";
 import Image from "next/image";
-import { FaXTwitter, FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { FaXTwitter, FaRss, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { Analytics } from "@vercel/analytics/react"
 import Script from "next/script";
@@ -40,18 +40,8 @@ function Navbar(){
           </Link>
         </div>
         <div className="mt-1">
-          <Link target="_blank" href="https://github.com/sherifnada">
-            <FaGithub/>
-          </Link>
-        </div>
-        <div className="mt-1">
-          <Link target="_blank" href="https://linkedin.com/in/shrif">
-            <FaLinkedinIn/>
-          </Link>
-        </div>
-        <div className="mt-1">
-          <Link target="_blank" href="mailto:snadalive@gmail.com">
-            <MdEmail/>
+          <Link target="_blank" href="/rss.xml">
+            <FaRss/>
           </Link>
         </div>
       </div>
