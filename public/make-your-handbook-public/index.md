@@ -8,7 +8,7 @@ tags:
 - values
 ---
 
-Established companies typically have a handbook where they write down information, policies, and processes that most or all people at the company should know. There's a lot of diversity in the contents of handbooks but the most common topics I've seen include: 
+Company handbooks aren't a new concept. Most companies have one. Some companies even keep it up to date. Usually it includes stuff like: 
 - Company mission statement & values 
 - Code of conduct & broad expectations of all employees such as working hours, communication norms, methodologies of working, and more
 - Organizational principles e.g: around how to prioritize product decisions or how teams should be structured or interact together
@@ -17,10 +17,6 @@ Established companies typically have a handbook where they write down informatio
 - Onboarding process for new employees and offboarding process for outgoing employees
 - Organizational defaults like default software for employees or default tech stack for the engineering team or the default hiring locations for distributed teams
 - Frequently needed HR things like expense policies, benefits, holidays, etc..
-
-It's tempting to think of handbooks as a big company thing, but they're just as useful for startups because they can help them maintain a high [clock speed](https://sriramk.com/clock-speed/). At its core, a handbook is just a highly visible centralized cache of information relevant to everyone in the company. So instead of Slacking each other the same questions over and over, employees can consult the handbook to instantly get answers. This caching aspect also works favorably when information or policies change. For example, if an employee couldn't find an answer about vacation policies in the handbook, it'd be very easy for them to add a sentence or two to the handbook entry on vacation policy once they find the answer. Once they do, everyone now has access to the latest and most comprehensive answer. So a well-organized handbook serves as a look-up table with `O(1)` inserts, updates, and look-up times, thus increasing the whole company's clock speed. 
- 
-The idea of a handbook isn't new. Plenty of companies have one. Some companies even keep it up to date. 
 
 What seems less common though is companies making their handbooks public. I find this surprising because a public handbook is an excellent tool for branding and improves hiring and retention. Plus, making a handbook public has zero marginal cost. All the hard work is in actually making and maintaining the content of the handbook, not changing its visibility from private to public. If you're worried about the effort that needs to go into creating a polished looking handbook, just remember that you can always publish a public Notion page. That's [what we did at Airbyte](https://handbook.airbyte.com). So making your handbook public is essentially the branding equivalent of free money, if only you would choose to reach for it.
 
