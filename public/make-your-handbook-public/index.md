@@ -72,3 +72,5 @@ Here are some handbooks that influenced how I think about culture and handbooks 
 - [**BaseCamp**](https://basecamp.com/handbook) — DHH and Jason Friedman (the founders of Basecamp) are pretty opinionated about what makes a good company culture. I don’t necessarily agree with everything they’re saying but that’s beside the point - what matters is that their handbook is authentic and clear. 
 
 If you’re looking for more inspiration, the following links collect some handbooks: 
+- [David Gasqeuz's handbook collection](https://publish.obsidian.md/davidgasquez/Company+Handbooks)
+- [Richard Bartlett's handbook index](https://hackmd.io/@yHk1snI9T9SNpiFu2o17oA/Skh_dXNbE?type=view)
