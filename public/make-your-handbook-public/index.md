@@ -8,7 +8,7 @@ tags:
 - values
 ---
 
-At Airbyte, we had the distinct displeasure of doing most of our hiring during the zero interest rate era. It was ridiculously competitive. Every good candidate had multiple offers. Each company went to great lengths to close them, outbidding, out-persuading, and out-wining and dining the next one to get them to join. 
+At Airbyte, we did a lot of hiring during the zero interest rate era. It was ridiculously competitive. Every good candidate had multiple offers. Each company went to great lengths to close them, outbidding, out-persuading, and out-wining and dining the next one to get them to join. 
 
 To a certain extent, we played this game. And we quickly learned that there are good and bad ways to differentiate ourselves to candidates. For example, whenever we won a candidate solely because of higher comp or  title, it *always* ended poorly, 100% of the time. On the other hand, we found that many of the candidates that chose us over competing offers (and certainly those who ended up being very successful at the company) joined because they were excited about our mission, the product, or how we worked, not because we offered an extra perk or marginally increased compensation. 
 
