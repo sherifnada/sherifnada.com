@@ -14,8 +14,8 @@ function Blog({posts}: {posts: {[key: string]: Post}}){
             <div className="flex w-full lg:w-40 flex-shrink-0 flex-grow-0 overflow-hidden pt-1 pr-10">{formatDate(post.metadata.createdDate)}</div>
             <Link href={`/${post.metadata.key}`} key={post.metadata.title}>
               <div className="flex flex-col">
-                <div className="text-3xl">{post.metadata.title}</div>
-                <div className="my-3">{post.metadata.description}</div>
+                <div className="text-2xl hover:text-blue-500">{post.metadata.title}</div>
+
               </div>        
             </Link>
           </div>
