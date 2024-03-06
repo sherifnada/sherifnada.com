@@ -10,7 +10,7 @@ tags:
 
 At Airbyte, we did a lot of hiring during the zero interest rate era. It was ridiculously competitive. Every good candidate had multiple offers. Each company went to great lengths to close them, outbidding, out-persuading, and out-wining and dining the next one to get them to join. 
 
-To a certain extent, we played this game. And we quickly learned that there are good and bad ways to differentiate ourselves to candidates. For example, whenever we won a candidate solely because of higher comp or  title, it usually ended poorly. Candidates that were successful at the company joined because they were excited about our mission, the product, or how we worked, not because we offered an extra perk or marginally increased compensation (though we did pay pretty well). 
+We quickly learned that there are good and bad ways to differentiate ourselves to candidates. For example, whenever we won a candidate solely because of higher comp or  title, it usually ended poorly. Candidates that were successful at the company joined because they were excited about our mission, the product, or how we worked, not because we offered an extra perk or marginally increased compensation (though we did pay pretty well). 
 
 To capitalize on this observation, we made our company handbook public. Our thinking was that by transparently and authentically broadcasting our mission and culture, we’d get more of those mission driven candidates who are more likely to succeed at Airbyte. 
 
