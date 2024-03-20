@@ -11,7 +11,7 @@ function Blog({posts}: {posts: {[key: string]: Post}}){
       .map((post) => {
         return (
           <div className="flex flex-col lg:flex-row mb-10" key={post.metadata.key}>
-            <div className="flex w-full lg:w-40 flex-shrink-0 flex-grow-0 overflow-hidden pt-1 pr-10">{formatDate(post.metadata.createdDate)}</div>
+            <div className="flex w-full lg:w-40 flex-shrink-0 pt-1">{formatDate(post.metadata.createdDate)}</div>
             <Link href={`/${post.metadata.key}`} key={post.metadata.title}>
               <div className="flex flex-col">
                 <div className="text-2xl hover:text-blue-500">{post.metadata.title}</div>

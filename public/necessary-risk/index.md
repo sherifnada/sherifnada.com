@@ -1,6 +1,6 @@
 ---
 title: Necessary risk
-createdDate: 03/05/2025
+createdDate: 03/05/2024
 description: A decision-making heuristic for low-information environments
 tags: 
 - decision making
