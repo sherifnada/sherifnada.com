@@ -1,4 +1,4 @@
-.markdown *:not(pre) {
+.markdown *:not(pre):not(.not-markdown) {
     @apply text-xl;
     font-weight: inherit;
     color: var(--theme-text-color);

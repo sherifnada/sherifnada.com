@@ -65,6 +65,14 @@ export default function Page({params} : {params: {post: string}}) {
                     },
                     code(props){
                         return CodeBlock(props);
+                    },
+                    img(props: any){
+                        return (
+                            <div className="flex flex-col items-center">
+                                <img className="justify-center mb-4" src={props.src} alt={props.alt}></img>
+                                <p className="not-markdown not-prose text-slate-600 italic text-lg">{props.alt}</p>
+                            </div>
+                        )
                     }
                 }}
                 urlTransform={url => {
