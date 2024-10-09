@@ -68,7 +68,7 @@ If you're thinking "but we don't have a handbook!", I would be skeptical. Most c
 Here are some handbooks that influenced how I think about culture and handbooks in general: 
 
 - [GitLab](https://handbook.gitlab.com) — the OG public handbook. Gitlab was one of if not the first tech company to publish their handbook and keep it up to date in public. It's more verbose than what I'd personally do, but it's a must-see if you're interested in this topic. 
-- [Airbyte](handbook.airbyte.com) — I was early at Airbyte and saw the handbook evolve with our culture, and I contributed to it as well. I'm biased, but I like that it's pretty informative while staying concise.
+- [Airbyte](https://handbook.airbyte.com) — I was early at Airbyte and saw the handbook evolve with our culture, and I contributed to it as well. I'm biased, but I like that it's pretty informative while staying concise.
 - [BaseCamp](https://basecamp.com/handbook) — DHH and Jason Friedman (the founders of Basecamp) are pretty opinionated about what makes a good company culture, and their handbook makes their opinions clear. It's a great example of how to highlight what makes your company unique.
 
 If you’re looking for more inspiration, the following links collect some handbooks: 
