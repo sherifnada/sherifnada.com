@@ -1,3 +1,11 @@
+---
+title: Do what you want mirrored
+description: a heuristic for clarity
+createdDate: 10/9/2024
+tags:
+    - management
+    - culture
+---
 
 
 As someone with any sort of influence in a company, whether you’re a founder, executive, manager, influential employee, or anything in between, all your actions have a second order effect: reinforcing what's culturally acceptable. Whenever you do something, you’re not just doing that thing. You’re also telling everyone around you that here in this company, it is okay or encouraged to do this thing, and this is the kind of thing you should expect to have happen going forward. 
