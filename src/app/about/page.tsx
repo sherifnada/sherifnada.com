@@ -18,7 +18,11 @@ export default function Page(){
                 I write about engineering management, startups, software engineering, and anything else between those that I find interesting. 
             </p>
             <p>
-                Most recently I was founding engineer-turned-engineering-manager at <Link href="https://airbyte.com">Airbyte</Link> where 
+                I'm currently leading the engineering team at <Link href="https://sirdab.co">Sirdab</Link>, an awesome warehousing & supply chain 
+                logistics company in MENA. 
+            </p>
+            <p>
+                Before that, I was founding engineer-turned-engineering-manager at <Link href="https://airbyte.com">Airbyte</Link> where 
                 I built products and teams responsible for developer tooling, data integrations, and AI data workflows. 
             </p>
             <p>
