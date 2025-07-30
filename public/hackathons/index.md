@@ -15,7 +15,7 @@ I believe this can be explained by how everything a company or its leadership do
 The hackathon guidelines were:
 * Work on whatever you want _(implicitly communicated norm: we trust your judgment)_
 * With whoever you want _(self-organize to get the job done)_
-* Skip your standard day job during the hackathon Move your meetings and calls. Do a few hours if that's all you can spare _(you really don't need that much time to conduct a fruitful experiment)_
+* Skip your standard day job during the hackathon. Move your meetings and calls. Do a few hours if that's all you can spare _(you really don't need that much time to conduct a fruitful experiment)_
 * Everyone is expected to participate _(we genuinely believe everyone has something awesome to contribute)_
 * Anyone who hacks must present their work to the company at the end-of-event presentations _(look at how smart & awesome your coworkers are!)_
 * There will be awards _(pretty please, be a try hard)_
