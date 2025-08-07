@@ -9,6 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build` - Builds the production Next.js application
 - `npm run start` - Starts the production server
 - `npm run lint` - Runs Next.js linting
+- When you test the changes, make sure the server is running in the background
 
 ### Node Version
 Use Node.js 22.12.0 (specified in .nvmrc)
