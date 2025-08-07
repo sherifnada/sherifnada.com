@@ -7,22 +7,31 @@
   --theme-text-color: #111827;
 }
 
+.dark {
+  --theme-background: #000000;
+  --theme-text-color: #D1D5DB;
+}
+
 @layer base {
   
   /* Style links except when we don't want to in places like navbar etc */
   .no-style-links a {
-    color: inherit;
+    color: inherit !important;
     text-decoration: inherit;
   }
 
   .no-style-links a:hover {
-    color: inherit;
+    color: inherit !important;
     text-decoration: inherit;
   }
 
   a {
-    color: blue;
+    color: rgb(59, 130, 246);
     text-decoration: none;
+  }
+
+  .dark a {
+    color: rgb(147, 197, 253);
   }
 
   a:hover {
