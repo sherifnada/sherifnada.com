@@ -57,7 +57,7 @@ export default function Page({params} : {params: {post: string}}) {
             <h1 className="text-5xl">{post.metadata.title}</h1>
             <em className="mt-2 mb-10">{formatDate(post.metadata.createdDate)}</em>
             <Markdown
-                className={`prose markdown max-w-none w-full pb-40`}
+                className={`prose dark:prose-invert markdown max-w-none w-full pb-40`}
                 remarkPlugins={[remarkGfm]}
                 components={{
                     pre(props){
