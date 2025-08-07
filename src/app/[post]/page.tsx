@@ -10,8 +10,8 @@ import './markdown.css'
 import { Metadata} from "next/types";
 
 type Props = {
-    params: { post: string }
-    searchParams: { [key: string]: string | string[] | undefined }
+    params: Promise<{ post: string }>
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 function getFirstParagraph(markdown: string): string {
@@ -21,7 +21,8 @@ function getFirstParagraph(markdown: string): string {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // read route params
-    const post = POSTS[params.post];
+    const { post: postKey } = await params;
+    const post = POSTS[postKey];
     const postMetadata = post.metadata;
     const postTitle = postMetadata.title;
     const postDescription = getFirstParagraph(post.content);
@@ -50,8 +51,9 @@ const CodeBlock = (props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLEleme
     }
 };
 
-export default function Page({params} : {params: {post: string}}) {
-    const post = POSTS[params.post];
+export default async function Page({params} : {params: Promise<{post: string}>}) {
+    const { post: postKey } = await params;
+    const post = POSTS[postKey];
     return (
         <>
             <h1 className="text-5xl">{post.metadata.title}</h1>
@@ -71,7 +73,7 @@ export default function Page({params} : {params: {post: string}}) {
                     if (url.startsWith("http")){
                         return url;
                     } else {
-                        return `/${params.post}/${url}`;
+                        return `/${postKey}/${url}`;
                     }
                 }}
             >
