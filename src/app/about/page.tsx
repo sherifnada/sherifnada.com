@@ -18,7 +18,10 @@ export default function Page(){
                 I write about engineering management, startups, software engineering, and anything else between those that I find interesting. 
             </p>
             <p>
-                I&apos;m currently leading the engineering team at <Link href="https://sirdab.co">Sirdab</Link>, a tech-enabled warehousing &amp; supply chain 
+                I&apos;m currently building AI solutions at <Link href="https://fractional.ai">Fractional.ai</Link> in Dubai.
+            </p>
+            <p>
+                Before that, I led the engineering team at <Link href="https://sirdab.co">Sirdab</Link>, a tech-enabled warehousing &amp; supply chain
                 logistics company in MENA.
             </p>
             <p>
