@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clickable 2D Grid (with X/Y labels + highlighted list)</title>
+  <style>
+    :root { --cell: 20px; --gap: 2px; --label: 26px; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:#0b0d10;
+      color:#e8eef6;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+    }
+    .wrap{ width:min(94vw, 1100px); display:grid; gap:12px; }
+    .panel{
+      display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center;
+      padding:12px 14px; background:#11151b; border:1px solid #1d2430; border-radius:12px;
+    }
+    .panel label{ display:inline-flex; gap:8px; align-items:center; }
+    .panel input[type="number"]{
+      width:80px; padding:6px 8px; border-radius:10px;
+      border:1px solid #263041; background:#0c1016; color:inherit;
+    }
+    .panel button{
+      padding:8px 10px; border-radius:10px; border:1px solid #263041;
+      background:#0c1016; color:inherit; cursor:pointer;
+    }
+    .panel button:hover{ filter:brightness(1.1); }
+    .hint{ opacity:.8; font-size:.92rem; }
+
+    .main{
+      display:grid;
+      grid-template-columns: 1fr 300px;
+      gap:12px;
+      align-items:start;
+    }
+    @media (max-width: 900px){
+      .main{ grid-template-columns: 1fr; }
+    }
+
+    /* Labeled grid uses a 2D CSS grid:
+       [top labels row] + [N rows of cells]
+       [left labels col] + [M cols of cells]
+    */
+    .lgrid{
+      user-select:none;
+      touch-action:none;
+      padding:12px;
+      background:#11151b;
+      border:1px solid #1d2430;
+      border-radius:12px;
+      overflow:auto;
+    }
+
+    .grid{
+      display:grid;
+      gap: var(--gap);
+      justify-content:start;
+      /* template rows/cols set in JS */
+    }
+
+    .axislabel{
+      width: var(--label);
+      height: var(--label);
+      display:grid;
+      place-items:center;
+      font-size:12px;
+      color:#b9c6d8;
+      background:#0c1016;
+      border:1px solid #1d2430;
+      border-radius:6px;
+    }
+    .axislabel.corner{
+      font-weight:600;
+      color:#d3def0;
+    }
+    .axislabel.top{ width: var(--cell); height: var(--label); border-radius:6px; }
+    .axislabel.left{ width: var(--label); height: var(--cell); border-radius:6px; }
+
+    .cell{
+      width: var(--cell);
+      aspect-ratio: 1 / 1;
+      background:#0c1016;
+      border:1px solid #1d2430;
+      border-radius:4px;
+      cursor:pointer;
+    }
+    .cell.filled{
+      background:#3b82f6;
+      border-color:#4f93ff;
+    }
+
+    .side{
+      padding:12px 14px;
+      background:#11151b;
+      border:1px solid #1d2430;
+      border-radius:12px;
+      position:sticky;
+      top:12px;
+    }
+    .side h3{
+      margin:0 0 8px 0;
+      font-size:14px;
+      letter-spacing:.2px;
+      color:#dbe6f6;
+    }
+    .side .meta{
+      margin:0 0 10px 0;
+      font-size:12px;
+      opacity:.85;
+    }
+    .side ol{
+      margin:0;
+      padding-left: 18px;
+      max-height: 60vh;
+      overflow:auto;
+    }
+    .side li{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:12px;
+      padding:2px 0;
+      opacity:.95;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <label>Rows (Y)
+        <input id="rows" type="number" min="1" max="200" value="20" />
+      </label>
+      <label>Cols (X)
+        <input id="cols" type="number" min="1" max="200" value="20" />
+      </label>
+      <label>Cell px
+        <input id="cellSize" type="number" min="6" max="60" value="20" />
+      </label>
+      <button id="build">Build grid</button>
+      <button id="clear">Clear</button>
+      <span class="hint">Tip: click + drag to paint. Shift + drag to erase.</span>
+    </div>
+
+    <div class="main">
+      <div class="lgrid">
+        <div id="grid" class="grid" aria-label="clickable labeled grid"></div>
+      </div>
+
+      <aside class="side">
+        <h3>Highlighted dots (sorted by x, then y)</h3>
+        <p class="meta"><span id="count">0</span> selected</p>
+        <ol id="selectedList"></ol>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const gridEl = document.getElementById("grid");
+    const rowsEl = document.getElementById("rows");
+    const colsEl = document.getElementById("cols");
+    const cellSizeEl = document.getElementById("cellSize");
+    const buildBtn = document.getElementById("build");
+    const clearBtn = document.getElementById("clear");
+    const listEl = document.getElementById("selectedList");
+    const countEl = document.getElementById("count");
+
+    let isPointerDown = false;
+    let dragMode = null; // "fill" or "erase"
+
+    function clampInt(v, min, max) {
+      const n = Number.parseInt(v, 10);
+      if (Number.isNaN(n)) return min;
+      return Math.max(min, Math.min(max, n));
+    }
+
+    function buildGrid() {
+      const rows = clampInt(rowsEl.value, 1, 200);
+      const cols = clampInt(colsEl.value, 1, 200);
+      const cellSize = clampInt(cellSizeEl.value, 6, 60);
+
+      rowsEl.value = rows;
+      colsEl.value = cols;
+      cellSizeEl.value = cellSize;
+
+      document.documentElement.style.setProperty("--cell", `${cellSize}px`);
+
+      gridEl.style.gridTemplateColumns = `var(--label) repeat(${cols}, var(--cell))`;
+      gridEl.style.gridTemplateRows = `var(--label) repeat(${rows}, var(--cell))`;
+
+      gridEl.innerHTML = "";
+      const frag = document.createDocumentFragment();
+
+      frag.appendChild(makeLabel("x/y", "corner"));
+
+      for (let x = 1; x <= cols; x++) frag.appendChild(makeLabel(String(x), "top"));
+
+      for (let y = 1; y <= rows; y++) {
+        frag.appendChild(makeLabel(String(y), "left"));
+        for (let x = 1; x <= cols; x++) {
+          const cell = document.createElement("div");
+          cell.className = "cell";
+          cell.dataset.x = String(x);
+          cell.dataset.y = String(y);
+          frag.appendChild(cell);
+        }
+      }
+
+      gridEl.appendChild(frag);
+      updateSelectedList();
+    }
+
+    function makeLabel(text, extraClass) {
+      const d = document.createElement("div");
+      d.className = `axislabel ${extraClass}`;
+      d.textContent = text;
+      return d;
+    }
+
+    function updateSelectedList() {
+      const selected = Array.from(gridEl.querySelectorAll(".cell.filled"))
+        .map(c => ({ x: Number(c.dataset.x), y: Number(c.dataset.y) }))
+        .sort((a, b) => (a.x - b.x) || (a.y - b.y));
+
+      countEl.textContent = String(selected.length);
+
+      listEl.innerHTML = "";
+      const frag = document.createDocumentFragment();
+      for (const p of selected) {
+        const li = document.createElement("li");
+        li.textContent = `(${p.x}, ${p.y})`;
+        frag.appendChild(li);
+      }
+      listEl.appendChild(frag);
+    }
+
+    function toggleCell(cell) {
+      cell.classList.toggle("filled");
+    }
+
+    function setCell(cell, mode) {
+      if (mode === "fill") cell.classList.add("filled");
+      else cell.classList.remove("filled");
+    }
+
+    function cellFromEvent(e) {
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      return el?.closest?.(".cell") || null;
+    }
+
+    // Prevent browser drag/scroll gestures interfering on touch/trackpads
+    gridEl.addEventListener("dragstart", (e) => e.preventDefault());
+
+    gridEl.addEventListener("pointerdown", (e) => {
+      const cell = e.target.closest(".cell");
+      if (!cell) return;
+
+      e.preventDefault();
+      isPointerDown = true;
+      gridEl.setPointerCapture?.(e.pointerId);
+
+      // Toggle the first cell
+      toggleCell(cell);
+
+      // Decide drag mode based on the toggled result
+      dragMode = cell.classList.contains("filled") ? "fill" : "erase";
+
+      updateSelectedList();
+    });
+
+    gridEl.addEventListener("pointermove", (e) => {
+      if (!isPointerDown) return;
+      e.preventDefault();
+
+      const cell = cellFromEvent(e);
+      if (!cell) return;
+
+      setCell(cell, dragMode);
+      updateSelectedList();
+    });
+
+    function endDrag() {
+      isPointerDown = false;
+      dragMode = null;
+    }
+
+    gridEl.addEventListener("pointerup", endDrag);
+    gridEl.addEventListener("pointercancel", endDrag);
+    gridEl.addEventListener("pointerleave", endDrag);
+
+    buildBtn.addEventListener("click", buildGrid);
+
+    clearBtn.addEventListener("click", () => {
+      gridEl.querySelectorAll(".cell.filled").forEach(c => c.classList.remove("filled"));
+      updateSelectedList();
+    });
+
+    buildGrid();
+  </script>
+</body>
+</html>
