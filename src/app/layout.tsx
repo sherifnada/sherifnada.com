@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import {karla, crimsonText} from "@/utils/fonts";
 import "./globals.css";
 import AutoRefresh from "./AutoRefresh";
-import { Analytics } from "@vercel/analytics/react"
 import Script from "next/script";
 import { createPageMetadata } from "@/utils/metadataHelper";
 import { ThemeProvider } from "./ThemeProvider";
-import { Navbar } from "./Navbar";
 
 export const metadata: Metadata = createPageMetadata(
   "Sherif's blog", 
@@ -45,13 +43,7 @@ export default function RootLayout({
         </head>
         <body className={`${crimsonText.className} bg-bg-primary text-text-primary transition-colors`}>
           <ThemeProvider>
-            <Navbar></Navbar>
-            <div className="flex justify-center h-screen">
-              <div className="flex flex-col p-10 max-w-3xl">
-                {children}  
-                <Analytics />
-              </div>
-            </div>
+            {children}
           </ThemeProvider>
         </body>
       </html>
