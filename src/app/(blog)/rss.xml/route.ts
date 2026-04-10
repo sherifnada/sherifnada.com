@@ -1,6 +1,6 @@
 import { generateFeed } from "@/utils/feed";
 import { POSTS } from "@/utils/contentService"; 
-import { metadata } from "../layout";
+import { metadata } from "../../layout";
 
 export const dynamic = 'force-static'; // Cache the RSS feed
 
