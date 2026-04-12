@@ -302,68 +302,47 @@ export default function GridToolPage() {
               width: "fit-content",
             }}
           >
-            <div
-              onPointerDown={onPointerDown}
-              onPointerMove={onPointerMove}
-              onPointerUp={endDrag}
-              onPointerCancel={endDrag}
-              onPointerLeave={endDrag}
-              onDragStart={(e) => e.preventDefault()}
-              style={{
-                display: "grid",
-                gap: gap,
-                justifyContent: "start",
-                gridTemplateColumns: `${labelSize}px repeat(${cols}, ${cellSize}px)`,
-                gridTemplateRows: `${labelSize}px repeat(${rows}, ${cellSize}px)`,
-              }}
-            >
-              {/* Corner label */}
+            <div style={{ position: "relative", width: "fit-content" }}>
               <div
+                onPointerDown={onPointerDown}
+                onPointerMove={onPointerMove}
+                onPointerUp={endDrag}
+                onPointerCancel={endDrag}
+                onPointerLeave={endDrag}
+                onDragStart={(e) => e.preventDefault()}
                 style={{
-                  width: labelSize,
-                  height: labelSize,
                   display: "grid",
-                  placeItems: "center",
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: "#d3def0",
-                  background: "#0c1016",
-                  border: "1px solid #1d2430",
-                  borderRadius: 6,
+                  gap: gap,
+                  justifyContent: "start",
+                  gridTemplateColumns: `${labelSize}px repeat(${cols}, ${cellSize}px)`,
+                  gridTemplateRows: `${labelSize}px repeat(${rows}, ${cellSize}px)`,
                 }}
               >
-                x/y
-              </div>
-
-              {/* Top labels */}
-              {Array.from({ length: cols }, (_, i) => (
+                {/* Corner label */}
                 <div
-                  key={`top-${i}`}
                   style={{
-                    width: cellSize,
+                    width: labelSize,
                     height: labelSize,
                     display: "grid",
                     placeItems: "center",
                     fontSize: 12,
-                    color: "#b9c6d8",
+                    fontWeight: 600,
+                    color: "#d3def0",
                     background: "#0c1016",
                     border: "1px solid #1d2430",
                     borderRadius: 6,
                   }}
                 >
-                  {i + 1}
+                  x/y
                 </div>
-              ))}
 
-              {/* Rows */}
-              {Array.from({ length: rows }, (_, rowIdx) => {
-                const y = rowIdx + 1;
-                return [
+                {/* Top labels */}
+                {Array.from({ length: cols }, (_, i) => (
                   <div
-                    key={`left-${y}`}
+                    key={`top-${i}`}
                     style={{
-                      width: labelSize,
-                      height: cellSize,
+                      width: cellSize,
+                      height: labelSize,
                       display: "grid",
                       placeItems: "center",
                       fontSize: 12,
@@ -373,31 +352,82 @@ export default function GridToolPage() {
                       borderRadius: 6,
                     }}
                   >
-                    {y}
-                  </div>,
-                  ...Array.from({ length: cols }, (_, colIdx) => {
-                    const x = colIdx + 1;
-                    const key = `${x},${y}`;
-                    const isFilled = filled.has(key);
-                    return (
-                      <div
-                        key={key}
-                        data-cell={key}
-                        style={{
-                          width: cellSize,
-                          aspectRatio: "1 / 1",
-                          background: isFilled ? "#3b82f6" : "#0c1016",
-                          border: isFilled
-                            ? "1px solid #4f93ff"
-                            : "1px solid #1d2430",
-                          borderRadius: 4,
-                          cursor: "pointer",
-                        }}
-                      />
-                    );
-                  }),
-                ];
-              })}
+                    {i + 1}
+                  </div>
+                ))}
+
+                {/* Rows */}
+                {Array.from({ length: rows }, (_, rowIdx) => {
+                  const y = rowIdx + 1;
+                  return [
+                    <div
+                      key={`left-${y}`}
+                      style={{
+                        width: labelSize,
+                        height: cellSize,
+                        display: "grid",
+                        placeItems: "center",
+                        fontSize: 12,
+                        color: "#b9c6d8",
+                        background: "#0c1016",
+                        border: "1px solid #1d2430",
+                        borderRadius: 6,
+                      }}
+                    >
+                      {y}
+                    </div>,
+                    ...Array.from({ length: cols }, (_, colIdx) => {
+                      const x = colIdx + 1;
+                      const key = `${x},${y}`;
+                      const isFilled = filled.has(key);
+                      return (
+                        <div
+                          key={key}
+                          data-cell={key}
+                          style={{
+                            width: cellSize,
+                            aspectRatio: "1 / 1",
+                            background: isFilled ? "#3b82f6" : "#0c1016",
+                            border: isFilled
+                              ? "1px solid #4f93ff"
+                              : "1px solid #1d2430",
+                            borderRadius: 4,
+                            cursor: "pointer",
+                          }}
+                        />
+                      );
+                    }),
+                  ];
+                })}
+              </div>
+              <svg
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  pointerEvents: "none",
+                  overflow: "visible",
+                }}
+              >
+                {lines.map((line, i) => {
+                  const { cx: cx1, cy: cy1 } = cellCenter(line.from);
+                  const { cx: cx2, cy: cy2 } = cellCenter(line.to);
+                  return (
+                    <line
+                      key={i}
+                      x1={cx1}
+                      y1={cy1}
+                      x2={cx2}
+                      y2={cy2}
+                      stroke="#3b82f6"
+                      strokeWidth={2}
+                      strokeOpacity={0.8}
+                      strokeLinecap="round"
+                    />
+                  );
+                })}
+              </svg>
             </div>
             <span style={{ opacity: 0.5, fontSize: "0.85rem", marginTop: 8, display: "block" }}>
               Tip: click + drag to paint.
