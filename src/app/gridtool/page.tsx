@@ -212,7 +212,7 @@ export default function GridToolPage() {
             >
               Clear
             </button>
-            {filled.size === 2 && (
+            {filled.size === 2 && lines.length === 0 && (
               <button
                 onClick={drawLine}
                 className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-sm font-medium transition-colors"
