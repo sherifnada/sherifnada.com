@@ -481,7 +481,7 @@ export default function GridToolPage() {
               )}
             </div>
             <span style={{ opacity: 0.5, fontSize: "0.85rem", marginTop: 8, display: "block" }}>
-              Tip: click + drag to paint.
+              Tip: click + drag to paint · select 2 cells to draw a line
             </span>
           </div>
       </div>
