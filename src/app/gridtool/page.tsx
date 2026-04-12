@@ -212,6 +212,22 @@ export default function GridToolPage() {
             >
               Clear
             </button>
+            {filled.size === 2 && (
+              <button
+                onClick={drawLine}
+                className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-sm font-medium transition-colors"
+              >
+                Draw line
+              </button>
+            )}
+            {lines.length > 0 && (
+              <button
+                onClick={clearLines}
+                className="px-4 py-1.5 bg-gray-800 hover:bg-gray-700 text-white rounded text-sm font-medium transition-colors"
+              >
+                Clear lines
+              </button>
+            )}
         </div>
 
           {/* Sidebar */}
