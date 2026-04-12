@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef } from "react";
 
 type Point = { x: number; y: number };
+type Line = { from: string; to: string };
 
 function clampInt(v: string, min: number, max: number): number {
   const n = parseInt(v, 10);
@@ -19,6 +20,7 @@ export default function GridToolPage() {
   const [cols, setCols] = useState(20);
   const [cellSize, setCellSize] = useState(20);
   const [filled, setFilled] = useState<Set<string>>(new Set());
+  const [lines, setLines] = useState<Line[]>([]);
 
   const dragModeRef = useRef<"fill" | "erase" | null>(null);
   const isDownRef = useRef(false);
@@ -97,6 +99,23 @@ export default function GridToolPage() {
     isDownRef.current = false;
     dragModeRef.current = null;
   };
+
+  const cellCenter = (key: string): { cx: number; cy: number } => {
+    const [x, y] = key.split(",").map(Number);
+    const cx = labelSize + gap + (x - 1) * (cellSize + gap) + cellSize / 2;
+    const cy = labelSize + gap + (y - 1) * (cellSize + gap) + cellSize / 2;
+    return { cx, cy };
+  };
+
+  const drawLine = useCallback(() => {
+    const [from, to] = Array.from(filled);
+    setLines((prev) => [...prev, { from, to }]);
+    setFilled(new Set());
+  }, [filled]);
+
+  const clearLines = useCallback(() => {
+    setLines([]);
+  }, []);
 
   const selectedPoints: Point[] = Array.from(filled)
     .map((k) => {
