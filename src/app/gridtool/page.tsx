@@ -285,6 +285,56 @@ export default function GridToolPage() {
                 </li>
               ))}
             </ol>
+            {lines.length > 0 && (
+              <div
+                style={{
+                  marginTop: 16,
+                  borderTop: "1px solid #1d2430",
+                  paddingTop: 12,
+                }}
+              >
+                <h3
+                  style={{
+                    margin: "0 0 8px 0",
+                    fontSize: 14,
+                    letterSpacing: "0.2px",
+                    color: "#dbe6f6",
+                  }}
+                >
+                  Lines
+                </h3>
+                <p style={{ margin: "0 0 10px 0", fontSize: 12, opacity: 0.85 }}>
+                  {lines.length} line{lines.length !== 1 ? "s" : ""}
+                </p>
+                <ol
+                  style={{
+                    margin: 0,
+                    paddingLeft: 18,
+                    maxHeight: "30vh",
+                    overflow: "auto",
+                  }}
+                >
+                  {lines.map((line, i) => {
+                    const [fx, fy] = line.from.split(",");
+                    const [tx, ty] = line.to.split(",");
+                    return (
+                      <li
+                        key={`${line.from}->${line.to}-${i}`}
+                        style={{
+                          fontFamily:
+                            'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace',
+                          fontSize: 12,
+                          padding: "2px 0",
+                          opacity: 0.95,
+                        }}
+                      >
+                        ({fx}, {fy}) → ({tx}, {ty})
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            )}
           </aside>
 
           {/* Grid */}
