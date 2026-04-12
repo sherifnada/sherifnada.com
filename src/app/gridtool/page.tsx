@@ -400,34 +400,35 @@ export default function GridToolPage() {
                   ];
                 })}
               </div>
-              <svg
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  width: "100%",
-                  height: "100%",
-                  pointerEvents: "none",
-                  overflow: "visible",
-                }}
-              >
-                {lines.map((line, i) => {
-                  const { cx: cx1, cy: cy1 } = cellCenter(line.from);
-                  const { cx: cx2, cy: cy2 } = cellCenter(line.to);
-                  return (
-                    <line
-                      key={i}
-                      x1={cx1}
-                      y1={cy1}
-                      x2={cx2}
-                      y2={cy2}
-                      stroke="#3b82f6"
-                      strokeWidth={2}
-                      strokeOpacity={0.8}
-                      strokeLinecap="round"
-                    />
-                  );
-                })}
-              </svg>
+              {lines.length > 0 && (
+                <svg
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    pointerEvents: "none",
+                  }}
+                >
+                  {lines.map((line, i) => {
+                    const { cx: cx1, cy: cy1 } = cellCenter(line.from);
+                    const { cx: cx2, cy: cy2 } = cellCenter(line.to);
+                    return (
+                      <line
+                        key={`${line.from}->${line.to}-${i}`}
+                        x1={cx1}
+                        y1={cy1}
+                        x2={cx2}
+                        y2={cy2}
+                        stroke="#3b82f6"
+                        strokeWidth={2}
+                        strokeOpacity={0.8}
+                        strokeLinecap="round"
+                      />
+                    );
+                  })}
+                </svg>
+              )}
             </div>
             <span style={{ opacity: 0.5, fontSize: "0.85rem", marginTop: 8, display: "block" }}>
               Tip: click + drag to paint.
