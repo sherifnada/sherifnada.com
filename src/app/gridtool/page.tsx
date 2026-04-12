@@ -115,7 +115,6 @@ export default function GridToolPage() {
     if (filled.size !== 2) return;
     const [from, to] = Array.from(filled);
     setLines([{ from, to }]);
-    setFilled(new Set());
   }, [filled]);
 
   const clearLines = useCallback(() => {
