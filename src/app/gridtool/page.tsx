@@ -36,6 +36,7 @@ export default function GridToolPage() {
     setCols(c);
     setCellSize(s);
     setFilled(new Set());
+    setLines([]);
   }, [rowsInput, colsInput, cellSizeInput]);
 
   const clear = useCallback(() => {
@@ -100,6 +101,9 @@ export default function GridToolPage() {
     dragModeRef.current = null;
   };
 
+  const labelSize = 26;
+  const gap = 2;
+
   const cellCenter = (key: string): { cx: number; cy: number } => {
     const [x, y] = key.split(",").map(Number);
     const cx = labelSize + gap + (x - 1) * (cellSize + gap) + cellSize / 2;
@@ -108,6 +112,7 @@ export default function GridToolPage() {
   };
 
   const drawLine = useCallback(() => {
+    if (filled.size !== 2) return;
     const [from, to] = Array.from(filled);
     setLines((prev) => [...prev, { from, to }]);
     setFilled(new Set());
@@ -123,9 +128,6 @@ export default function GridToolPage() {
       return { x, y };
     })
     .sort((a, b) => a.x - b.x || a.y - b.y);
-
-  const labelSize = 26;
-  const gap = 2;
 
   return (
     <div
