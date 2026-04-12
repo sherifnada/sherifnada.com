@@ -114,7 +114,7 @@ export default function GridToolPage() {
   const drawLine = useCallback(() => {
     if (filled.size !== 2) return;
     const [from, to] = Array.from(filled);
-    setLines((prev) => [...prev, { from, to }]);
+    setLines([{ from, to }]);
     setFilled(new Set());
   }, [filled]);
 
